@@ -4,7 +4,13 @@
 </div>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:about) %>:</strong></dt>
+  <dd><%= @panel.about %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @panel.description %></dd>
 </dl>
+
+
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               panels_path, :class => 'btn btn-default'  %>

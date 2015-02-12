@@ -1,15 +1,26 @@
-class PanelsController < ApplicationController
-  before_action :set_panel, only: [:show, :edit, :update, :destroy]
 
+require 'forecast_io'
+
+class PanelsController < ApplicationController
+  before_action :set_panel, only: [:show, :edit, :update]
   # GET /panels
   # GET /panels.json
   def index
     @output = Output.all.order(:id).last
+  
+    @current_weather = ForecastIO.forecast(37.8267, -122.423).currently
   end
 
   # GET /panels/1
   # GET /panels/1.json
   def show
+  end
+
+  # GET
+  def query_date
+    time = params[:data]
+    @forecast = ForecastIO.forecast(37.8267,-122.433, time:time.to_i)
+
   end
 
   # GET /panels/new
@@ -69,6 +80,6 @@ class PanelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def panel_params
-      params[:panel]
+      params.require(:panel).permit(:about,:description,:location,:photos)
     end
 end

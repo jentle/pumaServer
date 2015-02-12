@@ -133,50 +133,69 @@
                                     <i class="fa fa-sun-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-6">
+                                    <div id="output"><%= @output.watt %></div>
                                 </div>
                                 <div class="col-xs-3 text-right">
                                     <div id="outputPanel" class="huge"><%= @output.watt %></div>
                                     <div>Kwatt</div>
                                 </div>
-		 	    </div>
-			    <div class="row">
-                                 <div id="output"><%= @output.watt %></div>
-			    </div>
+                            </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right fa-2x"></i></span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-5">
+		  <div class="row">   
 		    <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
                                     <i class="fa fa-cloud fa-5x"></i>
-			       </div>
+                                </div>
                                 <div class="col-xs-9 text-right">
 					<div id="temperature" class="huge"><%= @current_weather.temperature%> F</div>
 					<div id="weather_sum"><%= @current_weather.summary%></div>
                                 </div>
-		 	    </div>
-		            <div class="row">
-                               <div class ="col-xs-6 text-center">
-				       <h3> Kilowatt-hours</h3>
-			       </div>
-			   </div>
-		         </div>
-			 <div class="panel-footer">
-				<a id="prev"><span class="pull-left"><i class="fa fa-arrow-circle-left fa-2x"></i></span></a>
-
-				<a id="next"><span class="pull-right"><i class="fa fa-arrow-circle-right fa-2x"></i></span></a>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
-                         </div>
-                  </div>
+                            </div>
+                        </a>
+	              </div>
+                    </div>
+                
+                   <div class="row">    
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">124</div>
+                                    <div>New Orders!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
               </div>
            </div>
           
@@ -187,14 +206,14 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-cog fa-5x"></i>
+                                    <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">Freedm PV</div>
-                                    <div>System Details</div>
+                                    <div class="huge">124</div>
+                                    <div>New Orders!</div>
                                 </div>
                             </div>
-		        </div>
+                        </div>
                         <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>

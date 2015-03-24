@@ -1,4 +1,4 @@
 json.array!(@outputs) do |output|
-  json.extract! output, :id, :watt, :voltage
-  json.url output_url(output, format: :json)
+   json.x output.created_at.to_i*1000
+   json.y output.watt
 end

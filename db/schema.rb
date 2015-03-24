@@ -11,16 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212172248) do
+ActiveRecord::Schema.define(version: 20150311193715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "devices", force: :cascade do |t|
+    t.string   "device_id"
+    t.string   "name"
+    t.integer  "port"
+    t.string   "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "outputs", force: :cascade do |t|
     t.integer  "watt"
     t.integer  "voltage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "panel_id"
   end
 
   create_table "panels", force: :cascade do |t|
@@ -30,6 +40,10 @@ ActiveRecord::Schema.define(version: 20150212172248) do
     t.text     "description"
     t.integer  "location"
     t.string   "photos"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.string   "source"
+    t.integer  "device_id"
   end
 
 end

@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'devices/register'
+  resources :devices
+
   get 'outputs/notify'
 
   get 'outputs/accept'
+  get 'outputs/io_sample'
 
   resources :outputs
 
+  get 'panels/remote_command' 
   resources :panels
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

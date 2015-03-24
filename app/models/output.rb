@@ -1,8 +1,9 @@
 class Output < ActiveRecord::Base
+  belongs_to :panel
 
   validates :watt, :presence => true
 
-  after_save :notify_change
+   after_save :notify_change
 
   def notify_change
     Output.connection.execute "NOTIFY outputs, '#{self.watt}'"

@@ -1,0 +1,72 @@
+<script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+<script type="text/javascript">
+
+$(function () {
+		$("#command").collapse("show");
+                $("#stop-system").click( function(){
+			$.ajax({
+				method: "GET",
+				url:"/panels/remote_command",
+				data: {command:"stop"}
+			})
+			.done(function(){
+			    alert("stop system now");
+			    $("#stop-system").attr("disabled", true);
+			    $("#start-system").attr("disabled",false);
+			}).fail(function(){
+			    alert("command fail");
+			});
+		});
+		$("#start-system").click( function(){
+			$.ajax({
+				method: "GET",
+				url:"/panels/remote_command",
+				data: {command:"start"}
+			})
+			.done(function(){
+			    alert("start system now");
+			    $("#start-system").attr("disabled", true);
+			    $("#stop-system").attr("disabled",false);
+			}).fail(function(){
+			    alert("command fail");
+			});
+		});
+	});
+</script>
+
+<%- model_class = Panel -%>
+<!--/row-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">System Dashboard</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+       
+	    <!-- /.row -->
+            <div class="row">
+                <div id="control" class="col-lg-3 col-md-12">
+                    <div class="panel panel-info">
+			    <div class="panel-heading">
+				    <div class="row">
+					 <a data-toggle="collapse" data-parent="#control" href="#command">
+					    <div class="col-xs-3">
+					        <i class="fa fa-cogs fa-4x"></i>
+					    </div>
+					    <div class="col-xs-9 text-right">
+						    <div >Control Panel</div>
+					    </div>
+				  	 </a>
+				    </div>
+			    </div>
+		            <div id="command" class="panel-collapse collapse">
+				 <div class="panel-body">
+				     <div id="start-system" class="btn btn-success" >start</div>
+				     <div id="stop-system" class="btn btn-danger">stop</div>
+				 </div>
+			    </div>
+
+                      </div>
+
+		 </div>
+	</div> 

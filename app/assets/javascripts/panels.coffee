@@ -16,7 +16,7 @@ $(".panels.index").ready ->
     percent = 100*current/MAX_OUTPUT
     $progress.css('width',percent+'%').attr("aria-valuenow",percent).html(percent+'%')
     
-    $('#output').highcharts().series[0].points[0].update(parseInt(current))
+    $('#outputs').highcharts().series[0].points[0].update(parseInt(current))
     $('#outputPanel').html(current)
   )
 

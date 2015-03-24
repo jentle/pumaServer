@@ -4,6 +4,7 @@ class OutputsController < ApplicationController
 
   before_action :set_output, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_device, only: [:io_sample]
   # GET /outputs
   # GET /outputs.json
   def index
@@ -44,6 +45,22 @@ class OutputsController < ApplicationController
     end
 
     render nothing: true
+  end
+
+  def io_sample
+    puts @device.panels.count
+    @device.panels.each do |panel|
+    	puts "panel:#{panel.source} =>#{params[panel.source]}"
+	output = Output.new
+	output.panel_id = panel.id
+	output.watt = params[panel.source]
+	if output.save
+	else
+	end
+    end
+    
+    render nothing: true
+
   end
 
   # GET /outputs/1
@@ -104,6 +121,10 @@ class OutputsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_output
       @output = Output.find(params[:id])
+    end
+
+    def	set_device
+      @device = Device.find_by_device_id(params[:device_id])
     end
 
   def accept_output

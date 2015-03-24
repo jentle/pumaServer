@@ -8,8 +8,9 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:watt) %></th>
       <th><%= model_class.human_attribute_name(:voltage) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+        <th><%= model_class.human_attribute_name(:time) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +19,7 @@
         <td><%= link_to output.id, output_path(output) %></td>
         <td><%= output.watt %></td>
         <td><%= output.voltage %></td>
-        <td><%=l output.created_at %></td>
+        <td><%= output.created_at.to_time %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_output_path(output), :class => 'btn btn-default btn-xs' %>

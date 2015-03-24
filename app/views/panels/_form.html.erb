@@ -29,6 +29,24 @@
     <%= error_span(@panel[:description]) %>
   </div>
 
+ <div class="control-group">
+    <%= f.label :longitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :longitude, :class => 'form-control' %>
+    </div>
+    <%= error_span(@panel[:longitude]) %>
+  </div>
+
+ <div class="control-group">
+    <%= f.label :latitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :latitude, :class => 'form-control' %>
+    </div>
+    <%= error_span(@panel[:latitude]) %>
+  </div>
+
+
+
 
 
 

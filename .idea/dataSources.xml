@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="480101384">
+    <data-source source="LOCAL" name="Rails pumaServer: development" uuid="31b9def4-739f-4579-8a9c-6c7b6c5e20d6">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:freedm</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails pumaServer: test" uuid="190b2487-e231-4b4c-91bf-dc9f537f4e58">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails pumaServer: production" uuid="1ada5388-44f4-4336-bff9-786e8b5b14f6">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:production</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

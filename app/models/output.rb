@@ -6,7 +6,7 @@ class Output < ActiveRecord::Base
    after_save :notify_change
 
   def notify_change
-    Output.connection.execute "NOTIFY outputs, '#{self.watt}'"
+    Output.connection.execute "NOTIFY outputs, '#{ self.id}'"
   end
 
   def self.on_change

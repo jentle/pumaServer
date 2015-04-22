@@ -8,11 +8,9 @@ $(function () {
     $('div.panel-footer').click(function(){
          $(this).parent().parent().find('.hidden-content').toggle();
          
-	 });
-       var panelId = $('#panelId').attr("value");
-       var panel = "#outputPanel-".concat(panelId);
-       console.log(panel);
-       var currentOutput =  parseInt($(panel).html());
+    });
+       
+       var currentOutput =  parseInt($('#outputPanel').html());
        $('#outputs').highcharts({
         credits:{
             enabled: false ,
@@ -103,7 +101,7 @@ $(function () {
             name: 'Output',
             data: [80],
             tooltip: {
-                valueSuffix: ' volts'
+                valueSuffix: ' kwatts'
             }
         }]
 
@@ -121,9 +119,8 @@ $(function () {
                     timezoneOffset: 5 * 60,
 	    }
 
-	    });
-    var url = "http://freedm.ngrok.com/panels/".concat(panelId)
-    $.getJSON(url, function (data) {
+      });
+    $.getJSON('http://freedm.ngrok.com/outputs', function (data) {
         // Create the chart
         $('#history_data').highcharts('StockChart', {
 
@@ -150,7 +147,11 @@ $(function () {
 	type: 'month',
 	count: 1,
 	text: '1m'
-},{
+}, {
+	type: 'month',
+	count: 3,
+	text: '3m'
+}, {
 	type: 'month',
 	count: 6,
 	text: '6m'
@@ -276,12 +277,11 @@ $(function () {
 <!--/row-->
             <div class="row">
                 <div class="col-lg-12">
-			<h1 class="page-header"><%= @panel.description%></h1>
+                    <h1 class="page-header">Dashboard</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-	   
-	    <div  id="panelId" value="<%=@panel.id %>" ></div>	
+       
 	    <!-- /.row -->
             <div class="row">
                 <div class="col-lg-6 col-md-12">
@@ -294,9 +294,8 @@ $(function () {
                                 <div class="col-xs-6">
                                 </div>
                                 <div class="col-xs-3 text-right">
-				   
-				     <div id="outputPanel-<%= @panel.id%>" class="huge"><%= @output.watt %></div>
-                                    <div>Volts</div>
+                                    <div id="outputPanel" class="huge"><%= @output.watt %></div>
+                                    <div>Kwatt</div>
 
                                 </div>
 		 	    </div>

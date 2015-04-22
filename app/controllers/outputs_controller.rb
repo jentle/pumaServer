@@ -8,9 +8,8 @@ class OutputsController < ApplicationController
   # GET /outputs
   # GET /outputs.json
   def index
-    @outputs = Output.all
-  end
-  
+    @outputs = Output.all.order(:created_at)
+  end 
   
   # GET /outputs/notify
   def notify
@@ -21,10 +20,10 @@ class OutputsController < ApplicationController
 
       begin
         # Watch the output change
-        Output.on_change do |data|
-
+        Output.on_change do |id|
+          output =  Output.find(id)
           # Send a message on the "refresh" channel on every update
-          sse.write({:watt => data} , :event => 'update_output')
+          sse.write({:panel=>output.panel_id, :watt => output.watt} , :event => 'update_output')
         end
 
       rescue IOError
@@ -52,8 +51,10 @@ class OutputsController < ApplicationController
     @device.panels.each do |panel|
     	puts "panel:#{panel.source} =>#{params[panel.source]}"
 	output = Output.new
+	
 	output.panel_id = panel.id
 	output.watt = params[panel.source]
+	output.watt *= panel.max
 	if output.save
 	else
 	end

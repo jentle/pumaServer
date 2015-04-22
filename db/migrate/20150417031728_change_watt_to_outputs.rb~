@@ -1,0 +1,4 @@
+class ChangeWattToOutputs < ActiveRecord::Migration
+  def change
+  end
+end

@@ -4,12 +4,17 @@ require 'forecast_io'
 class PanelsController < ApplicationController
   before_action :set_panel, only: [:show, :edit, :update]
   skip_filter :panel_params, only: [:register]
-
-  # GET /panels
+  respond_to :html, :json
+  respond_to :html, :json  
+  #GET /panels
   # GET /panels.json
   def index
-    device = Device.find(params[:id])
-    @panels = device.panels
+    @device = Device.find(params[:id])
+    respond_with(@device) do |format|
+	      if @device.id==2
+		      format.html{ render :device2 }
+	      end
+    end
   end
 
   # GET /panels/1
@@ -81,7 +86,7 @@ class PanelsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @panel.errors, status: :unprocessable_entity }
       end
-    end
+   end
   end
 
   # DELETE /panels/1

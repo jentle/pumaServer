@@ -1,1 +1,4 @@
-json.extract! @panel, :id, :created_at, :updated_at
+json.array! @panel.outputs do |output|
+   json.x output.created_at.to_i*1000
+   json.y output.watt
+end

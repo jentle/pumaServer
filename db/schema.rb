@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311193715) do
+ActiveRecord::Schema.define(version: 20150418173926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20150311193715) do
   end
 
   create_table "outputs", force: :cascade do |t|
-    t.integer  "watt"
-    t.integer  "voltage"
+    t.float    "watt"
+    t.float    "voltage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "panel_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150311193715) do
     t.string   "latitude"
     t.string   "source"
     t.integer  "device_id"
+    t.float    "max"
   end
 
 end
